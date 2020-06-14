@@ -1,0 +1,165 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800" />
+    <script src='https://api.mapbox.com/mapbox.js/v2.2.4/mapbox.js'></script>
+    <link href='https://api.mapbox.com/mapbox.js/v2.2.4/mapbox.css' rel='stylesheet' />
+    <script src="http://square.github.io/crossfilter/crossfilter.v1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+    <script src="/lib/jquery.waypoints.min.js"></script>
+    <script src="/lib/inview.min.js"></script>
+    <script src="/js/incident_map.js" defer> </script>
+</head>
+
+<body>
+    <section id="intro">
+        <div class="intro-heading">
+            <h1 class="bounceIn" style="font-size:44px">Visualization Story Behind</h1>
+            <h1 class="fadeInUp" style="font-size:44px">US School Shootings</h1>
+            <a href="#incident_map" class="btn fadeInUp">EXPLORE</a>
+        </div>
+    </section>
+
+    <section id="incident_map">
+        <p class='incident_first'>Two decades ago, the United states witnessed the worst school shootings in its history prompting action on the relaxed gun laws in the country.</p>
+        <p class='incident_first'>Fast Forward to 2020, the shootings have become deadlier such as Parkland and the government has turned a blind eye to the bloodshed.
+        </p>
+        <p class='incident_second'>Beginning with Columbine in 1999, more than <strong style="color: red">187,000 students</strong> attending at least 193 primary or secondary schools have experienced <strong> a shooting on campus</strong> during school hours, according to a year-long Washington Post analysis
+        </p>
+        <div id="map_container">
+            <div id="mapDiv"></div>
+            <div class="titleDiv">
+                <h1>School Shootings in the US</h1>
+                <h4>1999 - 2020</h4>
+            </div>
+            <div class="infoDiv"></div>
+            <div class="chart">
+                <div class="title">School Shootings by Month</div>
+                <div class="select">
+                    <label><input type="radio" name="view" value="events" checked>Events</label>
+                    <label><input type="radio" name="view" value="killed">Killed</label>
+                    <label><input type="radio" name="view" value="wounded">Wounded</label>
+                </div>
+                <div class="animControls"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="time-series-graph">
+        <h1 class="sidebar-title">Timeline of BloodBath (2018 - 2020)</h1>
+        <p id="description-date">There has been at least <b>one school shooting</b> every month in 2019.
+            Less than three months into 2020, there were <b>18 school shootings.</b><br>
+            With US Schools being shut down due to <b>COVID-19,</b> America has
+            recorded a <b>decline</b> in school shootings for the first time in two decades.
+        </p>
+        <div id="button-container-date">
+            <button id="button-day" class="button-active-date">By Day</button>
+            <button id="button-month" class="button-inactive-date">By Month</button>
+        </div>
+        <div id="bar-chart"></div>
+    </section>
+
+    <section class="seperator">
+        <div class="container">
+            <div class="pane fadeInLeft">
+                <img src="/img/people.png">
+                <h3 style="line-height:1.5">The US makes up less than 5% of the world’s population, but holds 31% of global mass shooters.</h3>
+                <p>Source: <a href="https://www.cnn.com/2017/10/03/americas/us-gun-statistics/index.html" style="color:#707070" target="_blank">CNN</a></p>
+            </div>
+
+            <div class="pane fadeInUp">
+                <img src="/img/gun.png">
+                <h3 style="line-height:1.5">The number of civilian-owned firearms in the US is 88.8 guns per 100 people.</h3>
+                <p>Source: <a href="https://www.cnn.com/2017/10/03/americas/us-gun-statistics/index.html" style="color:#707070" target="_blank">CNN</a></p>
+            </div>
+
+            <div class="pane" id="money_detail">
+                <img src="/img/monay.png">
+                <h3 style="line-height:1.5">The cost of US gun violence is almost $2.8 billion a year.</h3>
+                <p>Source: <a href="https://qz.com/1093144/us-gun-violence-costs-an-average-of-2-8-billion-a-year-a-johns-hopkins-study-reveals/" style="color:#707070" target="_blank">Quartz</a></p>
+            </div>
+        </div>
+    </section>
+
+    <section id="pyramid">
+        <h1> Who are the suspects? </h1>
+        <p id="pyramid_intro">It can be seen that both men and women commit school shootings, however the choice of weapon and affiliation with school is varied.</p>
+        <div id="pyramid_container">
+            <div id="facts">
+
+            </div>
+            <div id="chart_container">
+                <div class="chart-btns">
+                    <button id="total-btn" class="chart-btn" onclick="setTotal()">OVERALL</button>
+                    <button id="weapon-btn" class="chart-btn" onclick="setWeapons()">WEAPONS</button>
+                    <button id="assoc-btn" class="chart-btn" onclick="setAssoc()">AFFILIATION WITH SCHOOL</button>
+                </div>
+                <div id="image_left">
+                </div>
+                <div id="image_right">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="seperator">
+        <div class="infographic_container">
+            <div class="infographic_pane fadeInLeft">
+                <img src="/img/info_1.jpg">
+            </div>
+
+            <div class="infographic_pane fadeInUp">
+                <img src="/img/info_2.jpg">
+            </div>
+
+            <div class="infographic_pane" id="money_detail">
+                <img src="/img/info_3.jpg">
+            </div>
+        </div>
+    </section>
+
+    <section id="doughnut">
+        <h1> Gun Point Trigger </h1>
+        <p id="donut_intro">
+            While <b>NRA blames America’s mental health</b> for school shootings, the National Public Radio identifies that mental health of students only plays as a risk factor and not as a main cause. <br><br>
+
+            <b>What makes a a small minority of students who have suicidal thoughts and mental issues turn to homicide?</b><br><br>
+
+            <strong style='color:red'> When pain turns in to anger and a want for revenge…</strong><br><br>
+
+            Psychologists state that violent disputes among their peers lead them to homicidal thoughts and fantasies where they identify themselves with shooters who have seemingly solved their problems using violence. The Easy access to guns turns this revenge fantasy into a reality.
+
+        </p>
+        <div id="doughnut_chart"></div>
+    </section>
+
+    <section id="summary">
+        <p>
+            The issue is not violent video games, violent movies or mental health issues but just the ….
+            <img src='/img/summary.png'>
+        </p>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p class="fadeInUp animated" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInUp;">Created as a final project for FIT5147 - Data Visualization and Exploration. Tutor- Mohammad Haqqani at Monash University.
+
+                <p class="fadeInUp animated" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInUp;">The code for this project can be found <a href="https://github.com/shaivya-rastogi/us-mass-shooting" target="_blank">here</a>.</p>
+
+                <p class="fadeInUp animated" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInUp;">Created by Mary Agnes Joseph</p>
+
+                <a href="#intro" class="fadeInUp animated" style="visibility: visible; animation-delay: 1s; animation-name: fadeInUp;">Back to Top</a>
+
+        </div>
+    </footer>
+
+
+    <!-- JS files -->
+    <script type="text/javascript" src="/js/time_series.js"></script>
+    <script type="text/javascript" src="/js/pyramid_graph.js"></script>
+    <script type="text/javascript" src="/js/doughnut.js"></script>
+</body></html>

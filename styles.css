@@ -1,0 +1,698 @@
+body {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+#main {
+    margin: 0 auto;
+}
+
+#intro {
+    height: 100vh;
+    width: 100%;
+    background: url(/img/cover_background.jpg) 50% 0 repeat-y fixed;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+}
+
+.intro-heading h1 {
+    font-weight: 600;
+}
+
+#intro .btn {
+    border: 2px solid transparent;
+    border-radius: 0px;
+    background: #f2545f;
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-size: 12px;
+    padding: 14px 42px;
+    margin-top: 42px;
+    transition: all 0.4s ease-in-out;
+}
+
+
+#intro .btn:hover {
+    background: transparent;
+    border-color: #ffffff;
+    color: #ffffff;
+}
+
+.intro-heading {
+    text-align: center;
+}
+
+@keyframes bounceIn {
+
+    0%,
+    20%,
+    40%,
+    60%,
+    80%,
+    100% {
+        -webkit-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+        transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    }
+
+    0% {
+        opacity: 0;
+        -webkit-transform: scale3d(.3, .3, .3);
+        transform: scale3d(.3, .3, .3);
+    }
+
+    20% {
+        -webkit-transform: scale3d(1.1, 1.1, 1.1);
+        transform: scale3d(1.1, 1.1, 1.1);
+    }
+
+    40% {
+        -webkit-transform: scale3d(.9, .9, .9);
+        transform: scale3d(.9, .9, .9);
+    }
+
+    60% {
+        opacity: 1;
+        -webkit-transform: scale3d(1.03, 1.03, 1.03);
+        transform: scale3d(1.03, 1.03, 1.03);
+    }
+
+    80% {
+        -webkit-transform: scale3d(.97, .97, .97);
+        transform: scale3d(.97, .97, .97);
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+.bounceIn {
+    animation-name: bounceIn;
+    animation-duration: .75s;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, 100%, 0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+.fadeInUp {
+    animation-name: fadeInUp;
+    animation-duration: .75s;
+}
+
+@keyframes fadeInRight {
+    0% {
+        opacity: 0;
+        transform: translate3d(100%, 0, 0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+.fadeInRight {
+    animation-name: fadeInRight;
+    animation-duration: .75s;
+}
+
+@keyframes fadeInLeft {
+    0% {
+        opacity: 0;
+
+        transform: translate3d(-100%, 0, 0);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform: none;
+    }
+}
+
+.fadeInLeft {
+
+    animation-name: fadeInLeft;
+    animation-duration: .75s;
+}
+
+/* seperator section */
+
+.seperator {
+    background: #222;
+    height: 400px;
+    color: #ffffff;
+}
+
+.seperator .container {
+    padding: 50px;
+    display: flex;
+}
+
+.seperator .pane {
+    animation-delay: 0.6s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: calc(100% / 3);
+    padding: 0 15px;
+    text-align: center;
+}
+
+.seperator .pane h3 {
+    padding-bottom: 10px;
+}
+
+/*css for maps*/
+
+#incident_map {
+    margin: 25px;
+}
+
+.incident_first {
+    font-weight: 800;
+    font-size: 28px;
+    padding: 0 100px;
+    text-align: center;
+}
+
+.incident_second {
+    font-size: 18px;
+    padding: 0 80px;
+}
+
+#map_container {
+    position: relative;
+    width: 100%;
+    height: 600px;
+}
+
+#mapDiv {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    max-height: 800px;
+}
+
+/* Map title div styles */
+.titleDiv {
+    position: absolute;
+    top: 0px;
+    margin: auto;
+    width: 100%;
+
+    color: white;
+    pointer-events: none;
+}
+
+.titleDiv h1 {
+    text-align: center;
+    font-weight: normal;
+    margin-bottom: 0px;
+}
+
+.titleDiv h4 {
+    text-align: center;
+    font-weight: normal;
+    margin-top: 5px;
+}
+
+/* info div styles */
+.infoDiv {
+    position: absolute;
+    bottom: 190px;
+    left: 10px;
+    color: white;
+    border-radius: 4px;
+    background: black;
+    opacity: 0.9;
+    padding: 10px;
+}
+
+.infoDiv table {
+    width: 200px;
+    color: white;
+}
+
+.infoDiv .killed {
+    color: red;
+}
+
+.infoDiv .wounded {
+    color: orange;
+}
+
+.infoDiv .data {
+    text-align: right;
+}
+
+/* Chart styles */
+.chart {
+    display: inline-block;
+    height: 110px;
+    margin-bottom: 10px;
+    background: black;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    left: 10px;
+    opacity: 0.8;
+    padding: 10px;
+    width: calc(100% - 40px);
+}
+
+.chart .title {
+    color: #fff;
+}
+
+#incident_map path {
+    shape-rendering: crispEdges;
+}
+
+.background.bar {
+    fill: #ccc;
+}
+
+.foreground.bar {
+    fill: steelblue;
+}
+
+#incident_map .axis path,
+#incident_map .axis line {
+    fill: none;
+    stroke: #fff;
+    shape-rendering: crispEdges;
+}
+
+#incident_map .axis text {
+    font-size: 10px;
+    fill: #fff;
+    stroke: none;
+}
+
+.brush rect.extent {
+    fill: steelblue;
+    fill-opacity: .125;
+}
+
+.brush .resize path {
+    fill: #eee;
+    stroke: #666;
+}
+
+.brush .extent {
+    stroke: #fff;
+    fill-opacity: 0.125;
+    shape-rendering: crispEdges;
+}
+
+.chart .select {
+    font-size: 12px;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 15px;
+}
+
+.chart .select label {
+    display: block;
+    color: #fff;
+}
+
+.chart .animControls {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 600px;
+    height: 25px;
+}
+
+.chart .animControls button {
+    display: inline-block;
+    cursor: default;
+    background-color: black;
+    border: 1px solid gray;
+    border-radius: 4px;
+    text-align: left;
+    padding: 2px 4px 2px 4px;
+    margin-right: 15px;
+    font-size: 13px;
+    color: #ccc;
+
+}
+
+.reset {
+    padding-left: 1em;
+    font-size: smaller;
+    color: #ccc;
+}
+
+/* css for time-series*/
+
+/* page title styles */
+
+#time-series-graph {
+    margin: 25px;
+}
+
+
+.sidebar-title {
+    margin-left: 10px;
+}
+
+#description-date {
+    float: right;
+    left: 500px;
+    font-size: 16px;
+    color: #333;
+    position: absolute;
+    overflow: hidden;
+    white-space: wrap;
+    width: 550px;
+    text-align: center;
+
+}
+
+/* bar chart axes and labels */
+#time-series-graph path {
+    fill: none;
+    stroke: #333;
+    ;
+}
+
+#time-series-graph .xaxis line {
+    stroke: #333;
+}
+
+#time-series-graph .yaxis line {
+    stroke: #333;
+}
+
+#time-series-graph .xaxis .tick,
+#time-series-graph .yaxis .tick {
+    font-size: 12px;
+    fill: #333;
+}
+
+.bar {
+    fill: steelblue;
+}
+
+/* bar chart buttons */
+
+#button-day {
+    font-family: "HelveticaNeue-Light", Helvetica, sans-serif;
+    font-size: 14px;
+    border-radius: 10px;
+    border: 2px solid #000000;
+    width: 150px;
+    overflow: hidden;
+    white-space: nowrap;
+    display: block;
+    margin: 10px;
+}
+
+#button-month {
+    font-family: "HelveticaNeue-Light", Helvetica, sans-serif;
+    font-size: 14px;
+    border-radius: 10px;
+    border: 2px solid #000000;
+    width: 150px;
+    overflow: hidden;
+    white-space: nowrap;
+    display: block;
+    margin: 10px;
+}
+
+#button-day:hover {
+    color: #fff;
+    background: #b24739;
+    outline: 0;
+}
+
+#button-day:focus {
+    color: #fff;
+    background: #b24739;
+    outline: 0;
+}
+
+#button-month:hover {
+    color: #fff;
+    background: #b24739;
+    outline: 0;
+}
+
+#button-month:focus {
+    color: #fff;
+    background: #b24739;
+    outline: 0;
+}
+
+.button-active-date {
+    color: #fff;
+    background: #b24739;
+}
+
+.button-inactive-date {
+    color: #b24739;
+    background: #fff;
+}
+
+.d3-tip {
+    line-height: 1.3;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    border-radius: 4px;
+}
+
+.d3-tip:after {
+    box-sizing: border-box;
+    display: inline;
+    font-size: 10px;
+    width: 100%;
+    line-height: 1;
+    color: rgba(0, 0, 0, 0.8);
+    content: "\25BC";
+    position: absolute;
+    text-align: center;
+}
+
+/* Style northward tooltips differently */
+.d3-tip.n:after {
+    margin: -1px 0 0 0;
+    top: 100%;
+    left: 0;
+}
+
+
+/*pyramid*/
+
+#pyramid {
+    margin: 50px 25px;
+
+}
+
+#pyramid #facts {
+    padding: 0 20px;
+    text-align: center;
+}
+
+#pyramid_intro {
+    font-size: 18px;
+}
+
+#pyramid h1 {
+    font-size: 30px;
+}
+
+#pyramid .axis line,
+#pyramid .axis path {
+    shape-rendering: crispEdges;
+    fill: transparent;
+    stroke: #555;
+}
+
+#pyramid .axis text {
+    font-size: 13px;
+    border-color: white;
+    stroke: #cdcdcd;
+}
+
+
+#pyramid .bar {
+    fill-opacity: 0.5;
+}
+
+#pyramid .bar.left {
+    fill: steelblue;
+}
+
+#pyramid .bar.right {
+    fill: #ffa0d5;
+    fill-opacity: 0.3;
+}
+
+.chart-btns {
+    text-align: center;
+    padding: 10px;
+}
+
+.chart-btn {
+    display: inline-block;
+    line-height: 1.428571429;
+    text-align: center;
+    text-transform: uppercase;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    border-radius: 4px;
+    border: none;
+    margin-left: 6px;
+    padding: 4px 12px;
+    user-select: none;
+    background-color: rgba(33, 37, 41, 0.5);
+    color: #bfb29e;
+    outline: none;
+}
+
+.chart-btn:hover {
+    background: rgba(68, 77, 89, 0.9);
+    color: #cecece;
+}
+
+.chart-btn.active {
+    background: rgba(240, 235, 227, 0.8);
+    color: #262525;
+}
+
+#pyramid_container {
+    display: flex;
+    padding: 20px 0;
+}
+
+#facts {
+    display: flex;
+    align-items: center;
+}
+
+#chart_container {
+    position: relative;
+    margin: 0 auto;
+    width: 880px;
+    background-color: #262525;
+    z-index: 0;
+
+}
+
+#image_left {
+    background-position: 90px 575px;
+    width: 880px;
+    height: 344px;
+    z-index: -1;
+    position: absolute;
+    background-repeat-x: no-repeat;
+    background-image: url("/img/pyramid_background.png");
+}
+
+#image_right {
+    background-position: 118px 1039px;
+    width: 370px;
+    height: 344px;
+    z-index: -1;
+    position: absolute;
+    right: 0px;
+    background-image: url("/img/pyramid_background.png");
+}
+
+
+/* seperator 2 */
+
+.seperator .infographic_container {
+    display: flex;
+    padding: 0 200px;
+    justify-content: space-between;
+}
+
+.seperator .infographic_pane {
+    animation-delay: 0.6s;
+}
+
+.seperator .infographic_pane img {
+    height: 400px;
+}
+
+/*doughnut chart*/
+#doughnut {
+    margin: 25px;
+}
+
+#donut_intro {
+    margin: 50px;
+    text-align: center;
+}
+
+/* Add shadow effect to chart. If you don't like it, get rid of it. */
+#doughnut_chart svg {
+    filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, .25));
+}
+
+/* Styling for the lines connecting the labels to the slices */
+polyline {
+    opacity: .3;
+    stroke: black;
+    stroke-width: 2px;
+    fill: none;
+}
+
+
+.labelName tspan {
+    font-style: normal;
+    font-weight: 700;
+}
+
+.labelName {
+    font-size: 0.9em;
+    font-style: italic;
+}
+
+/* summary section */
+#summary {
+    margin: 70px;
+    font-size: 35px;
+    font-weight: 300;
+    text-align: center;
+}
+
+#summary img {
+    height: 50px;
+    transform: rotate(30deg);
+}
+
+footer {
+    background: #f9f9f9;
+    font-size: 12px;
+    text-align: center;
+    padding: 50px 0;
+}
+
+footer a {
+    text-decoration: none;
+}
