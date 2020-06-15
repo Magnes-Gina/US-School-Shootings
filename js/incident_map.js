@@ -79,7 +79,7 @@ chartDiv
     .style("display", "none");
 
 // get the data
-d3.json("../data/maps.geojson", function (error, data) {
+d3.json("data/maps.geojson", function (error, data) {
     // process the data
     data.features.forEach(function (d) {
         const c = d.properties.Date.split("/");

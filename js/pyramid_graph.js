@@ -102,9 +102,12 @@ function setWeapons() {
     data = weaponData;
     updateData();
     d3.select("#facts p").remove();
-    d3.select("#facts")
-        .append("p")
+    d3.select("#facts").append('p')
         .html("Firearms are the <b style='color:red'> second leading cause of death </b> among American children and adolescents, after car crashes. <br><br> Guns used in about <b>68% of gun-related </b> incidents at schools were taken from the home, a friend or a relative")
+        .style("opacity", 0)
+        .transition()
+        .duration(400)
+        .style("opacity", 1);
     d3.select('#weapon-btn').attr('class', 'chart-btn active')
     d3.select('#assoc-btn').attr('class', 'chart-btn')
     d3.select('#total-btn').attr('class', 'chart-btn')
@@ -114,9 +117,12 @@ function setTotal() {
     data = totalData;
     updateData();
     d3.select("#facts p").remove();
-    d3.select("#facts")
-        .append("p")
+    d3.select("#facts").append('p')
         .html("A school massacre is used as a way of asserting <b>masculinity</b> as much of Western culture associates violence with masculinity")
+        .style("opacity", 0)
+        .transition()
+        .duration(400)
+        .style("opacity", 1);
     d3.select('#total-btn').attr('class', 'chart-btn active')
     d3.select('#assoc-btn').attr('class', 'chart-btn')
     d3.select('#weapon-btn').attr('class', 'chart-btn')
@@ -126,9 +132,12 @@ function setAssoc() {
     data = assocData;
     updateData();
     d3.select("#facts p").remove();
-    d3.select("#facts")
-        .append("p")
+    d3.select("#facts").append('p')
         .html("An estimated <b>4.6 million American children </b> live in a home where at least one gun is kept loaded and unlocked")
+        .style("opacity", 0)
+        .transition()
+        .duration(400)
+        .style("opacity", 1);
     d3.select('#assoc-btn').attr('class', 'chart-btn active')
     d3.select('#total-btn').attr('class', 'chart-btn')
     d3.select('#weapon-btn').attr('class', 'chart-btn')

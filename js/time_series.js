@@ -52,7 +52,7 @@ var svgBar = d3
 svgBar.call(day_tip);
 
 // load the data
-d3.csv("../data/by_day.csv", function (error, data) {
+d3.csv("data/by_day.csv", function (error, data) {
     if (error) throw error;
     console.log(data);
 
@@ -150,7 +150,7 @@ d3.select("#button-month").on("click", function () {
         .addClass("button-inactive-date");
 
     // update the dataset
-    d3.csv("../data/by_month.csv", function (error, data) {
+    d3.csv("data/by_month.csv", function (error, data) {
         if (error) throw error;
 
         // format the date
@@ -190,7 +190,7 @@ d3.select("#button-month").on("click", function () {
             .transition()
             .duration(2000)
             .delay(function (d, i) {
-                return i * 50 + 500;
+                return i * 50 + 300;
             })
             .attr("x", function (d) {
                 return xScaleBar(d.date);
@@ -222,13 +222,11 @@ d3.select("#button-month").on("click", function () {
         d3.select(".xaxis")
             .transition()
             .duration(2000)
-            .delay(2000)
             .call(d3.svg.axis().scale(xScaleBar).orient("bottom").tickSize([3]));
 
         d3.select(".yaxis")
             .transition()
             .duration(2000)
-            .delay(2000)
             .call(d3.svg.axis().scale(yScaleBar).orient("left").tickSize([3]));
 
         svgBar.call(month_tip);
@@ -246,7 +244,7 @@ d3.select("#button-day").on("click", function () {
 
 
     // update the dataset
-    d3.csv("../data/by_day.csv", function (error, data) {
+    d3.csv("data/by_day.csv", function (error, data) {
         if (error) throw error;
 
         // format the date
@@ -274,6 +272,9 @@ d3.select("#button-day").on("click", function () {
         // update the bars
         bars
             .transition()
+            .delay(function (d, i) {
+                return i * 50 + 300;
+            })
             .duration(2000)
             .attr("x", function (d) {
                 return xScaleBar(d.date);
@@ -331,9 +332,6 @@ d3.select("#button-day").on("click", function () {
             .selectAll(".new")
             .transition()
             .duration(2000)
-            .delay(function (d, i) {
-                return 1000 + i * 2;
-            })
             .attr("height", function (d) {
                 return heightBar - yScaleBar(d.count);
             });
@@ -342,13 +340,11 @@ d3.select("#button-day").on("click", function () {
         d3.select(".xaxis")
             .transition()
             .duration(2000)
-            .delay(2000)
             .call(d3.svg.axis().scale(xScaleBar).orient("bottom").tickSize([3]));
 
         d3.select(".yaxis")
             .transition()
             .duration(2000)
-            .delay(2000)
             .call(d3.svg.axis().scale(yScaleBar).orient("left").tickSize([3]));
 
         svgBar.call(day_tip);
